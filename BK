@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berpikir Komputasional - SMK Informatika</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .slide-in { animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .pulse-correct { animation: pulseCorrect 0.6s ease-in-out; }
+        @keyframes pulseCorrect { 0% { transform: scale(1); } 50% { transform: scale(1.05); background-color: #10b981; } 100% { transform: scale(1); } }
+        .pulse-wrong { animation: pulseWrong 0.6s ease-in-out; }
+        @keyframes pulseWrong { 0% { transform: scale(1); } 50% { transform: scale(1.05); background-color: #ef4444; } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">💻</span>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800">Berpikir Komputasional</h1>
+                </div>
+                <div class="flex space-x-2">
+                    <button onclick="showPage('materi')" id="btn-materi" class="px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-600 text-white">Materi</button>
+                    <button onclick="showPage('studi-kasus')" id="btn-studi-kasus" class="px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300">Studi Kasus</button>
+                    <button onclick="showPage('kuis')" id="btn-kuis" class="px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300">Kuis</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page 1: Materi -->
+    <div id="page-materi" class="page-content">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Berpikir Komputasional</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Kemampuan fundamental dalam memecahkan masalah menggunakan konsep-konsep ilmu komputer</p>
+                </div>
+
+                <!-- 4 Pilar Berpikir Komputasional -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🔍</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">Dekomposisi</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Memecah masalah kompleks menjadi bagian-bagian yang lebih kecil dan mudah dikelola.</p>
+                        
+                        <!-- Visual Diagram -->
+                        <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-full h-32" viewBox="0 0 400 120">
+                                <rect x="150" y="10" width="100" height="30" fill="#3B82F6" rx="5"/>
+                                <text x="200" y="28" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Masalah Besar</text>
+                                
+                                <line x1="200" y1="40" x2="200" y2="60" stroke="#6B7280" stroke-width="2"/>
+                                <polygon points="195,55 200,65 205,55" fill="#6B7280"/>
+                                
+                                <rect x="50" y="70" width="70" height="25" fill="#10B981" rx="3"/>
+                                <text x="85" y="85" text-anchor="middle" fill="white" font-size="10">Bagian 1</text>
+                                
+                                <rect x="130" y="70" width="70" height="25" fill="#10B981" rx="3"/>
+                                <text x="165" y="85" text-anchor="middle" fill="white" font-size="10">Bagian 2</text>
+                                
+                                <rect x="210" y="70" width="70" height="25" fill="#10B981" rx="3"/>
+                                <text x="245" y="85" text-anchor="middle" fill="white" font-size="10">Bagian 3</text>
+                                
+                                <rect x="290" y="70" width="70" height="25" fill="#10B981" rx="3"/>
+                                <text x="325" y="85" text-anchor="middle" fill="white" font-size="10">Bagian 4</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-sm text-blue-800"><strong>Contoh 1:</strong> Membuat aplikasi e-commerce dipecah menjadi: sistem login, katalog produk, keranjang belanja, dan pembayaran.</p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-sm text-blue-800"><strong>Contoh 2:</strong> Membuat website sekolah dipecah menjadi: halaman beranda, profil sekolah, informasi akademik, dan kontak.</p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-sm text-blue-800"><strong>Contoh 3:</strong> Menyelesaikan tugas akhir dipecah menjadi: riset literatur, pengumpulan data, analisis, dan penulisan laporan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🔄</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">Pengenalan Pola</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Mengidentifikasi kesamaan atau pola dalam masalah untuk menemukan solusi yang efisien.</p>
+                        
+                        <!-- Visual Pattern -->
+                        <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-full h-24" viewBox="0 0 400 80">
+                                <circle cx="50" cy="40" r="15" fill="#10B981"/>
+                                <rect x="85" y="25" width="30" height="30" fill="#3B82F6"/>
+                                <polygon points="140,25 155,55 125,55" fill="#EF4444"/>
+                                
+                                <circle cx="180" cy="40" r="15" fill="#10B981"/>
+                                <rect x="215" y="25" width="30" height="30" fill="#3B82F6"/>
+                                <polygon points="270,25 285,55 255,55" fill="#EF4444"/>
+                                
+                                <circle cx="310" cy="40" r="15" fill="#10B981"/>
+                                <rect x="345" y="25" width="30" height="30" fill="#3B82F6"/>
+                                
+                                <text x="200" y="70" text-anchor="middle" fill="#6B7280" font-size="12">Pola: Lingkaran → Persegi → Segitiga</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <p class="text-sm text-green-800"><strong>Contoh 1:</strong> Mengenali pola dalam data penjualan untuk memprediksi tren masa depan.</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <p class="text-sm text-green-800"><strong>Contoh 2:</strong> Mengidentifikasi pola kesalahan siswa dalam ujian untuk memperbaiki metode pembelajaran.</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <p class="text-sm text-green-800"><strong>Contoh 3:</strong> Mengenali pola lalu lintas untuk mengoptimalkan waktu perjalanan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">🎯</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">Abstraksi</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Menyederhanakan masalah dengan fokus pada aspek penting dan mengabaikan detail yang tidak relevan.</p>
+                        
+                        <!-- Visual Abstraction -->
+                        <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center">
+                                    <div class="bg-gray-300 p-3 rounded-lg mb-2">
+                                        <svg class="w-full h-16" viewBox="0 0 100 60">
+                                            <rect x="10" y="20" width="15" height="20" fill="#8B5CF6"/>
+                                            <rect x="30" y="15" width="20" height="25" fill="#8B5CF6"/>
+                                            <rect x="55" y="25" width="12" height="15" fill="#8B5CF6"/>
+                                            <rect x="72" y="18" width="18" height="22" fill="#8B5CF6"/>
+                                            <line x1="5" y1="45" x2="95" y2="45" stroke="#374151" stroke-width="2"/>
+                                            <line x1="5" y1="50" x2="95" y2="50" stroke="#374151" stroke-width="1"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600">Detail Lengkap</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-purple-100 p-3 rounded-lg mb-2">
+                                        <svg class="w-full h-16" viewBox="0 0 100 60">
+                                            <line x1="10" y1="30" x2="90" y2="30" stroke="#8B5CF6" stroke-width="3"/>
+                                            <line x1="10" y1="35" x2="90" y2="35" stroke="#8B5CF6" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-xs text-purple-600">Abstraksi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-purple-50 p-3 rounded-lg">
+                                <p class="text-sm text-purple-800"><strong>Contoh 1:</strong> Membuat peta jalan yang hanya menampilkan jalan utama tanpa detail bangunan.</p>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg">
+                                <p class="text-sm text-purple-800"><strong>Contoh 2:</strong> Diagram alir yang menunjukkan proses tanpa detail teknis implementasi.</p>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg">
+                                <p class="text-sm text-purple-800"><strong>Contoh 3:</strong> Model matematika yang menyederhanakan fenomena kompleks menjadi persamaan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">⚙️</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">Algoritma</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Merancang langkah-langkah sistematis dan logis untuk menyelesaikan masalah.</p>
+                        
+                        <!-- Visual Algorithm -->
+                        <div class="mb-4 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-full h-32" viewBox="0 0 300 120">
+                                <rect x="110" y="10" width="80" height="20" fill="#F97316" rx="10"/>
+                                <text x="150" y="23" text-anchor="middle" fill="white" font-size="10" font-weight="bold">MULAI</text>
+                                
+                                <line x1="150" y1="30" x2="150" y2="40" stroke="#6B7280" stroke-width="2"/>
+                                <polygon points="145,35 150,45 155,35" fill="#6B7280"/>
+                                
+                                <rect x="110" y="45" width="80" height="20" fill="#3B82F6" rx="5"/>
+                                <text x="150" y="58" text-anchor="middle" fill="white" font-size="9">Langkah 1</text>
+                                
+                                <line x1="150" y1="65" x2="150" y2="75" stroke="#6B7280" stroke-width="2"/>
+                                <polygon points="145,70 150,80 155,70" fill="#6B7280"/>
+                                
+                                <rect x="110" y="80" width="80" height="20" fill="#3B82F6" rx="5"/>
+                                <text x="150" y="93" text-anchor="middle" fill="white" font-size="9">Langkah 2</text>
+                                
+                                <line x1="150" y1="100" x2="150" y2="110" stroke="#6B7280" stroke-width="2"/>
+                                <polygon points="145,105 150,115 155,105" fill="#6B7280"/>
+                                
+                                <rect x="110" y="115" width="80" height="20" fill="#F97316" rx="10"/>
+                                <text x="150" y="128" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SELESAI</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-orange-50 p-3 rounded-lg">
+                                <p class="text-sm text-orange-800"><strong>Contoh 1:</strong> Algoritma untuk mencari rute tercepat dari rumah ke sekolah.</p>
+                            </div>
+                            <div class="bg-orange-50 p-3 rounded-lg">
+                                <p class="text-sm text-orange-800"><strong>Contoh 2:</strong> Langkah-langkah membuat kopi: panaskan air → masukkan kopi → aduk → sajikan.</p>
+                            </div>
+                            <div class="bg-orange-50 p-3 rounded-lg">
+                                <p class="text-sm text-orange-800"><strong>Contoh 3:</strong> Algoritma pencarian data dalam database dengan urutan yang efisien.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logika Matematika -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Logika Matematika dalam Berpikir Komputasional</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold text-blue-800 mb-3">Operator Logika</h4>
+                            <ul class="space-y-2 text-blue-700 mb-4">
+                                <li><strong>AND (∧):</strong> Kedua kondisi harus benar</li>
+                                <li><strong>OR (∨):</strong> Salah satu kondisi benar</li>
+                                <li><strong>NOT (¬):</strong> Kebalikan dari kondisi</li>
+                            </ul>
+                            
+                            <!-- Visual Logic Gates -->
+                            <div class="bg-white p-3 rounded-lg">
+                                <svg class="w-full h-20" viewBox="0 0 200 80">
+                                    <!-- AND Gate -->
+                                    <path d="M20 20 L50 20 Q70 20 70 40 Q70 60 50 60 L20 60 Z" fill="#3B82F6" stroke="#1E40AF" stroke-width="1"/>
+                                    <text x="45" y="43" text-anchor="middle" fill="white" font-size="8" font-weight="bold">AND</text>
+                                    <line x1="10" y1="30" x2="20" y2="30" stroke="#374151" stroke-width="2"/>
+                                    <line x1="10" y1="50" x2="20" y2="50" stroke="#374151" stroke-width="2"/>
+                                    <line x1="70" y1="40" x2="80" y2="40" stroke="#374151" stroke-width="2"/>
+                                    
+                                    <!-- OR Gate -->
+                                    <path d="M110 20 Q130 20 150 40 Q130 60 110 60 Q120 40 110 20 Z" fill="#10B981" stroke="#059669" stroke-width="1"/>
+                                    <text x="130" y="43" text-anchor="middle" fill="white" font-size="8" font-weight="bold">OR</text>
+                                    <line x1="100" y1="30" x2="110" y2="30" stroke="#374151" stroke-width="2"/>
+                                    <line x1="100" y1="50" x2="110" y2="50" stroke="#374151" stroke-width="2"/>
+                                    <line x1="150" y1="40" x2="160" y2="40" stroke="#374151" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold text-green-800 mb-3">Pernyataan Kondisional</h4>
+                            <ul class="space-y-2 text-green-700 mb-4">
+                                <li><strong>IF-THEN:</strong> Jika P maka Q</li>
+                                <li><strong>IF-ELSE:</strong> Jika P maka Q, selain itu R</li>
+                                <li><strong>Nested IF:</strong> Kondisi bertingkat</li>
+                            </ul>
+                            
+                            <!-- Flowchart -->
+                            <div class="bg-white p-3 rounded-lg">
+                                <svg class="w-full h-20" viewBox="0 0 180 80">
+                                    <polygon points="90,10 110,25 90,40 70,25" fill="#10B981" stroke="#059669" stroke-width="1"/>
+                                    <text x="90" y="28" text-anchor="middle" fill="white" font-size="7" font-weight="bold">IF</text>
+                                    
+                                    <rect x="20" y="50" width="40" height="15" fill="#3B82F6" rx="3"/>
+                                    <text x="40" y="60" text-anchor="middle" fill="white" font-size="7">THEN</text>
+                                    
+                                    <rect x="120" y="50" width="40" height="15" fill="#EF4444" rx="3"/>
+                                    <text x="140" y="60" text-anchor="middle" fill="white" font-size="7">ELSE</text>
+                                    
+                                    <line x1="80" y1="35" x2="50" y2="50" stroke="#374151" stroke-width="1"/>
+                                    <line x1="100" y1="35" x2="130" y2="50" stroke="#374151" stroke-width="1"/>
+                                    
+                                    <text x="65" y="45" fill="#059669" font-size="6">T</text>
+                                    <text x="115" y="45" fill="#EF4444" font-size="6">F</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg">
+                            <h4 class="text-xl font-semibold text-purple-800 mb-3">Tabel Kebenaran</h4>
+                            <ul class="space-y-2 text-purple-700 mb-4">
+                                <li><strong>True (T):</strong> Pernyataan benar</li>
+                                <li><strong>False (F):</strong> Pernyataan salah</li>
+                                <li><strong>Kombinasi:</strong> Hasil operasi logika</li>
+                            </ul>
+                            
+                            <!-- Mini Truth Table -->
+                            <div class="bg-white p-3 rounded-lg">
+                                <table class="w-full text-xs">
+                                    <thead class="bg-purple-100">
+                                        <tr>
+                                            <th class="border border-purple-200 px-2 py-1">P</th>
+                                            <th class="border border-purple-200 px-2 py-1">Q</th>
+                                            <th class="border border-purple-200 px-2 py-1">P∧Q</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-purple-200 px-2 py-1 text-center">T</td>
+                                            <td class="border border-purple-200 px-2 py-1 text-center">T</td>
+                                            <td class="border border-purple-200 px-2 py-1 text-center bg-green-100">T</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-purple-200 px-2 py-1 text-center">T</td>
+                                            <td class="border border-purple-200 px-2 py-1 text-center">F</td>
+                                            <td class="border border-purple-200 px-2 py-1 text-center bg-red-100">F</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contoh-contoh Praktis -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-blue-800 mb-4">Contoh Operator AND</h4>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>Masuk Universitas:</strong></p>
+                                    <p class="text-xs text-gray-600">Nilai ≥ 80 AND Lulus Tes Wawancara</p>
+                                    <p class="text-xs text-blue-700">Kedua syarat harus terpenuhi</p>
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>Login Sistem:</strong></p>
+                                    <p class="text-xs text-gray-600">Username benar AND Password benar</p>
+                                    <p class="text-xs text-blue-700">Keduanya harus valid</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-green-800 mb-4">Contoh Operator OR</h4>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                    <p class="text-sm"><strong>Diskon Belanja:</strong></p>
+                                    <p class="text-xs text-gray-600">Member VIP OR Belanja > 500rb</p>
+                                    <p class="text-xs text-green-700">Salah satu syarat cukup</p>
+                                </div>
+                                <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                    <p class="text-sm"><strong>Akses Ruangan:</strong></p>
+                                    <p class="text-xs text-gray-600">Kartu Akses OR Kode PIN</p>
+                                    <p class="text-xs text-green-700">Bisa pakai salah satu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Contoh Penerapan dalam Pemrograman:</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium text-gray-700 mb-2">Contoh 1: Validasi SIM</h5>
+                                <div class="bg-gray-800 text-green-400 p-4 rounded-lg font-mono text-sm">
+                                    <div>if (umur >= 17 AND memiliki_KTP == true) {</div>
+                                    <div class="ml-4">status = "Boleh membuat SIM";</div>
+                                    <div>} else {</div>
+                                    <div class="ml-4">status = "Belum boleh membuat SIM";</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="font-medium text-gray-700 mb-2">Contoh 2: Sistem Kelulusan</h5>
+                                <div class="bg-gray-800 text-green-400 p-4 rounded-lg font-mono text-sm">
+                                    <div>if (nilai >= 75 OR tugas_lengkap == true) {</div>
+                                    <div class="ml-4">hasil = "LULUS";</div>
+                                    <div>} else {</div>
+                                    <div class="ml-4">hasil = "TIDAK LULUS";</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contoh Nested IF -->
+                    <div class="bg-yellow-50 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold text-yellow-800 mb-4">Contoh Nested IF (Kondisi Bertingkat)</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-medium text-yellow-700 mb-2">Sistem Penilaian Siswa:</h5>
+                                <div class="bg-gray-800 text-green-400 p-4 rounded-lg font-mono text-xs">
+                                    <div>if (nilai >= 90) {</div>
+                                    <div class="ml-4">grade = "A";</div>
+                                    <div>} else if (nilai >= 80) {</div>
+                                    <div class="ml-4">grade = "B";</div>
+                                    <div>} else if (nilai >= 70) {</div>
+                                    <div class="ml-4">grade = "C";</div>
+                                    <div>} else {</div>
+                                    <div class="ml-4">grade = "D";</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="font-medium text-yellow-700 mb-2">Flowchart Nested IF:</h5>
+                                <div class="bg-white p-3 rounded-lg">
+                                    <svg class="w-full h-32" viewBox="0 0 200 120">
+                                        <polygon points="100,10 120,20 100,30 80,20" fill="#F59E0B"/>
+                                        <text x="100" y="23" text-anchor="middle" fill="white" font-size="8">≥90?</text>
+                                        
+                                        <polygon points="100,45 120,55 100,65 80,55" fill="#F59E0B"/>
+                                        <text x="100" y="58" text-anchor="middle" fill="white" font-size="8">≥80?</text>
+                                        
+                                        <rect x="150" y="15" width="25" height="12" fill="#10B981" rx="2"/>
+                                        <text x="162" y="23" text-anchor="middle" fill="white" font-size="7">A</text>
+                                        
+                                        <rect x="150" y="50" width="25" height="12" fill="#3B82F6" rx="2"/>
+                                        <text x="162" y="58" text-anchor="middle" fill="white" font-size="7">B</text>
+                                        
+                                        <line x1="120" y1="20" x2="150" y2="20" stroke="#374151" stroke-width="1"/>
+                                        <line x1="120" y1="55" x2="150" y2="55" stroke="#374151" stroke-width="1"/>
+                                        <line x1="100" y1="30" x2="100" y2="45" stroke="#374151" stroke-width="1"/>
+                                        
+                                        <text x="135" y="18" fill="#10B981" font-size="6">Y</text>
+                                        <text x="135" y="53" fill="#3B82F6" font-size="6">Y</text>
+                                        <text x="105" y="40" fill="#EF4444" font-size="6">N</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Studi Kasus -->
+    <div id="page-studi-kasus" class="page-content hidden">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="fade-in">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Studi Kasus Interaktif</h2>
+                    <p class="text-xl text-gray-600">Praktik langsung logika matematika dalam pemecahan masalah</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Sistem Penerimaan Mahasiswa Baru</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-700 mb-4">Kriteria Penerimaan:</h4>
+                            <div class="space-y-3">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <p class="font-medium text-blue-800">Nilai Matematika ≥ 80</p>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <p class="font-medium text-green-800">Nilai Bahasa Inggris ≥ 75</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <p class="font-medium text-purple-800">Nilai Rata-rata ≥ 78</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                                <p class="text-yellow-800 font-medium">Logika: (Matematika ≥ 80) AND (B.Inggris ≥ 75) AND (Rata-rata ≥ 78)</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-700 mb-4">Simulasi Penerimaan:</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nilai Matematika:</label>
+                                    <input type="number" id="nilai-math" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="0-100" min="0" max="100">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nilai Bahasa Inggris:</label>
+                                    <input type="number" id="nilai-english" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="0-100" min="0" max="100">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nilai Rata-rata:</label>
+                                    <input type="number" id="nilai-average" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="0-100" min="0" max="100">
+                                </div>
+                                <button onclick="checkAdmission()" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">Cek Penerimaan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="admission-result" class="mt-8 p-6 rounded-lg hidden">
+                        <h4 class="text-xl font-semibold mb-4">Hasil Evaluasi:</h4>
+                        <div id="logic-steps" class="space-y-2 mb-4"></div>
+                        <div id="final-result" class="text-lg font-bold"></div>
+                    </div>
+                </div>
+
+                <!-- Studi Kasus 2: Perakitan Komputer -->
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Studi Kasus: Perakitan Komputer</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-700 mb-4">Penerapan 4 Pilar Berpikir Komputasional:</h4>
+                            
+                            <!-- Dekomposisi -->
+                            <div class="mb-6 p-4 bg-blue-50 rounded-lg">
+                                <div class="flex items-center mb-3">
+                                    <span class="text-2xl mr-3">🔍</span>
+                                    <h5 class="text-lg font-semibold text-blue-800">1. Dekomposisi</h5>
+                                </div>
+                                <p class="text-blue-700 text-sm mb-2">Memecah proses perakitan menjadi tahapan:</p>
+                                <ul class="text-xs text-blue-600 space-y-1 ml-4">
+                                    <li>• Persiapan komponen dan tools</li>
+                                    <li>• Instalasi motherboard ke casing</li>
+                                    <li>• Pemasangan CPU dan RAM</li>
+                                    <li>• Instalasi storage dan GPU</li>
+                                    <li>• Koneksi kabel dan testing</li>
+                                </ul>
+                            </div>
+
+                            <!-- Pengenalan Pola -->
+                            <div class="mb-6 p-4 bg-green-50 rounded-lg">
+                                <div class="flex items-center mb-3">
+                                    <span class="text-2xl mr-3">🔄</span>
+                                    <h5 class="text-lg font-semibold text-green-800">2. Pengenalan Pola</h5>
+                                </div>
+                                <p class="text-green-700 text-sm mb-2">Mengidentifikasi pola dalam perakitan:</p>
+                                <ul class="text-xs text-green-600 space-y-1 ml-4">
+                                    <li>• Semua konektor memiliki bentuk unik</li>
+                                    <li>• Komponen besar dipasang dulu</li>
+                                    <li>• Kabel power selalu berwarna standar</li>
+                                    <li>• Setiap komponen punya slot khusus</li>
+                                </ul>
+                            </div>
+
+                            <!-- Abstraksi -->
+                            <div class="mb-6 p-4 bg-purple-50 rounded-lg">
+                                <div class="flex items-center mb-3">
+                                    <span class="text-2xl mr-3">🎯</span>
+                                    <h5 class="text-lg font-semibold text-purple-800">3. Abstraksi</h5>
+                                </div>
+                                <p class="text-purple-700 text-sm mb-2">Fokus pada hal penting, abaikan detail teknis:</p>
+                                <ul class="text-xs text-purple-600 space-y-1 ml-4">
+                                    <li>• Kompatibilitas socket CPU-Motherboard</li>
+                                    <li>• Kapasitas PSU vs kebutuhan daya</li>
+                                    <li>• Ukuran komponen vs ruang casing</li>
+                                </ul>
+                            </div>
+
+                            <!-- Algoritma -->
+                            <div class="p-4 bg-orange-50 rounded-lg">
+                                <div class="flex items-center mb-3">
+                                    <span class="text-2xl mr-3">⚙️</span>
+                                    <h5 class="text-lg font-semibold text-orange-800">4. Algoritma</h5>
+                                </div>
+                                <p class="text-orange-700 text-sm mb-2">Langkah sistematis perakitan:</p>
+                                <div class="text-xs text-orange-600 space-y-1">
+                                    <div class="flex items-center">
+                                        <span class="w-4 h-4 bg-orange-200 rounded-full mr-2 flex items-center justify-center text-xs">1</span>
+                                        <span>Siapkan workspace dan tools</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-4 h-4 bg-orange-200 rounded-full mr-2 flex items-center justify-center text-xs">2</span>
+                                        <span>Install PSU ke casing</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-4 h-4 bg-orange-200 rounded-full mr-2 flex items-center justify-center text-xs">3</span>
+                                        <span>Pasang I/O shield motherboard</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-4 h-4 bg-orange-200 rounded-full mr-2 flex items-center justify-center text-xs">4</span>
+                                        <span>Install CPU dan cooler</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-4 h-4 bg-orange-200 rounded-full mr-2 flex items-center justify-center text-xs">5</span>
+                                        <span>Pasang RAM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-700 mb-4">Simulator Kompatibilitas Komponen:</h4>
+                            
+                            <!-- Component Selection -->
+                            <div class="space-y-4 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">CPU Socket:</label>
+                                    <select id="cpu-socket" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Pilih CPU Socket</option>
+                                        <option value="LGA1700">Intel LGA1700</option>
+                                        <option value="AM4">AMD AM4</option>
+                                        <option value="AM5">AMD AM5</option>
+                                        <option value="LGA1200">Intel LGA1200</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Motherboard:</label>
+                                    <select id="motherboard" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Pilih Motherboard</option>
+                                        <option value="LGA1700">ASUS Z690 (LGA1700)</option>
+                                        <option value="AM4">MSI B450 (AM4)</option>
+                                        <option value="AM5">GIGABYTE X670 (AM5)</option>
+                                        <option value="LGA1200">ASRock B460 (LGA1200)</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">RAM Type:</label>
+                                    <select id="ram-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Pilih RAM</option>
+                                        <option value="DDR5">DDR5 32GB</option>
+                                        <option value="DDR4">DDR4 16GB</option>
+                                        <option value="DDR3">DDR3 8GB</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Power Supply:</label>
+                                    <select id="psu-watt" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Pilih PSU</option>
+                                        <option value="850">850W Modular</option>
+                                        <option value="650">650W Semi-Modular</option>
+                                        <option value="500">500W Standard</option>
+                                        <option value="400">400W Basic</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Graphics Card:</label>
+                                    <select id="gpu-power" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Pilih GPU</option>
+                                        <option value="350">RTX 4080 (350W)</option>
+                                        <option value="220">RTX 4060 Ti (220W)</option>
+                                        <option value="115">GTX 1660 (115W)</option>
+                                        <option value="0">Integrated Graphics</option>
+                                    </select>
+                                </div>
+                                
+                                <button onclick="checkCompatibility()" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">Cek Kompatibilitas</button>
+                            </div>
+
+                            <!-- Visual PC Assembly -->
+                            <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                <h5 class="font-medium text-gray-700 mb-3">Visualisasi Komponen PC:</h5>
+                                <svg class="w-full h-48" viewBox="0 0 300 180">
+                                    <!-- Casing -->
+                                    <rect x="50" y="20" width="200" height="140" fill="#2D3748" stroke="#4A5568" stroke-width="2" rx="5"/>
+                                    <rect x="55" y="25" width="190" height="130" fill="#4A5568" rx="3"/>
+                                    
+                                    <!-- Motherboard -->
+                                    <rect x="70" y="40" width="160" height="100" fill="#10B981" stroke="#059669" stroke-width="1" rx="2"/>
+                                    <text x="150" y="95" text-anchor="middle" fill="white" font-size="10" font-weight="bold">MOTHERBOARD</text>
+                                    
+                                    <!-- CPU Socket -->
+                                    <rect x="85" y="55" width="25" height="25" fill="#3B82F6" stroke="#1E40AF" stroke-width="1" rx="2"/>
+                                    <text x="97" y="70" text-anchor="middle" fill="white" font-size="6">CPU</text>
+                                    
+                                    <!-- RAM Slots -->
+                                    <rect x="120" y="50" width="8" height="35" fill="#EF4444" rx="1"/>
+                                    <rect x="130" y="50" width="8" height="35" fill="#EF4444" rx="1"/>
+                                    <rect x="140" y="50" width="8" height="35" fill="#EF4444" rx="1"/>
+                                    <rect x="150" y="50" width="8" height="35" fill="#EF4444" rx="1"/>
+                                    <text x="135" y="45" text-anchor="middle" fill="#374151" font-size="6">RAM</text>
+                                    
+                                    <!-- GPU Slot -->
+                                    <rect x="80" y="110" width="80" height="15" fill="#F59E0B" stroke="#D97706" stroke-width="1" rx="2"/>
+                                    <text x="120" y="120" text-anchor="middle" fill="white" font-size="8">GPU SLOT</text>
+                                    
+                                    <!-- PSU -->
+                                    <rect x="180" y="110" width="40" height="25" fill="#6B7280" stroke="#4B5563" stroke-width="1" rx="2"/>
+                                    <text x="200" y="125" text-anchor="middle" fill="white" font-size="7">PSU</text>
+                                    
+                                    <!-- Storage -->
+                                    <rect x="170" y="55" width="20" height="12" fill="#8B5CF6" rx="1"/>
+                                    <text x="180" y="63" text-anchor="middle" fill="white" font-size="6">SSD</text>
+                                    
+                                    <!-- Cables -->
+                                    <line x1="200" y1="110" x2="150" y2="90" stroke="#F59E0B" stroke-width="2"/>
+                                    <line x1="200" y1="115" x2="97" y2="80" stroke="#EF4444" stroke-width="2"/>
+                                    <line x1="205" y1="120" x2="135" y2="85" stroke="#10B981" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="compatibility-result" class="mt-8 p-6 rounded-lg hidden">
+                        <h4 class="text-xl font-semibold mb-4">Hasil Analisis Kompatibilitas:</h4>
+                        <div id="compatibility-details" class="space-y-3"></div>
+                        <div id="compatibility-conclusion" class="mt-4 p-4 rounded-lg font-medium"></div>
+                    </div>
+                </div>
+
+                <!-- Tabel Kebenaran Interaktif -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Tabel Kebenaran Interaktif</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-700 mb-4">Pilih Operator:</h4>
+                            <div class="space-y-3">
+                                <button onclick="showTruthTable('AND')" class="w-full bg-blue-100 hover:bg-blue-200 text-blue-800 py-3 px-4 rounded-lg transition-colors duration-200 font-medium">AND (∧)</button>
+                                <button onclick="showTruthTable('OR')" class="w-full bg-green-100 hover:bg-green-200 text-green-800 py-3 px-4 rounded-lg transition-colors duration-200 font-medium">OR (∨)</button>
+                                <button onclick="showTruthTable('NOT')" class="w-full bg-purple-100 hover:bg-purple-200 text-purple-800 py-3 px-4 rounded-lg transition-colors duration-200 font-medium">NOT (¬)</button>
+                            </div>
+                        </div>
+
+                        <div id="truth-table-container">
+                            <h4 class="text-xl font-semibold text-gray-700 mb-4">Tabel Kebenaran:</h4>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center text-gray-500">
+                                Pilih operator untuk melihat tabel kebenaran
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Kuis -->
+    <div id="page-kuis" class="page-content hidden">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="fade-in">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Kuis Berpikir Komputasional</h2>
+                    <p class="text-xl text-gray-600">10 soal dipilih secara acak dari bank soal 40 pertanyaan</p>
+                </div>
+
+                <div id="quiz-start" class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-3xl text-white">🧠</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Siap untuk Kuis?</h3>
+                        <p class="text-gray-600">Kuis ini akan menguji pemahaman Anda tentang berpikir komputasional dan logika matematika.</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div><strong>Jumlah Soal:</strong> 10</div>
+                            <div><strong>Waktu:</strong> 15 menit</div>
+                            <div><strong>Passing Score:</strong> 70%</div>
+                            <div><strong>Jenis:</strong> Pilihan Ganda</div>
+                        </div>
+                    </div>
+                    <button onclick="startQuiz()" class="bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium text-lg">Mulai Kuis</button>
+                </div>
+
+                <div id="quiz-container" class="hidden">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="text-sm text-gray-600">
+                                Soal <span id="current-question">1</span> dari <span id="total-questions">10</span>
+                            </div>
+                            <div class="text-sm text-gray-600">
+                                Waktu: <span id="timer" class="font-mono font-bold">15:00</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 10%"></div>
+                            </div>
+                        </div>
+
+                        <div id="question-container">
+                            <h3 id="question-text" class="text-xl font-semibold text-gray-800 mb-6"></h3>
+                            <div id="options-container" class="space-y-3"></div>
+                        </div>
+
+                        <div class="flex justify-between mt-8">
+                            <button onclick="previousQuestion()" id="prev-btn" class="bg-gray-300 text-gray-700 py-2 px-6 rounded-lg hover:bg-gray-400 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">Sebelumnya</button>
+                            <button onclick="nextQuestion()" id="next-btn" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200">Selanjutnya</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="hidden bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div id="result-icon" class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"></div>
+                    <h3 id="result-title" class="text-2xl font-bold mb-2"></h3>
+                    <p id="result-score" class="text-xl text-gray-600 mb-6"></p>
+                    <div id="result-details" class="bg-gray-50 p-4 rounded-lg mb-6"></div>
+                    <button onclick="restartQuiz()" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">Ulangi Kuis</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show selected page
+            document.getElementById(`page-${pageId}`).classList.remove('hidden');
+            
+            // Update navigation buttons
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            document.getElementById(`btn-${pageId}`).classList.remove('bg-gray-200', 'text-gray-700');
+            document.getElementById(`btn-${pageId}`).classList.add('bg-blue-600', 'text-white');
+        }
+
+        // Studi Kasus - Admission Check
+        function checkAdmission() {
+            const math = parseInt(document.getElementById('nilai-math').value) || 0;
+            const english = parseInt(document.getElementById('nilai-english').value) || 0;
+            const average = parseInt(document.getElementById('nilai-average').value) || 0;
+            
+            const mathPass = math >= 80;
+            const englishPass = english >= 75;
+            const averagePass = average >= 78;
+            const finalResult = mathPass && englishPass && averagePass;
+            
+            const resultDiv = document.getElementById('admission-result');
+            const stepsDiv = document.getElementById('logic-steps');
+            const finalDiv = document.getElementById('final-result');
+            
+            stepsDiv.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <span class="w-4 h-4 rounded-full ${mathPass ? 'bg-green-500' : 'bg-red-500'}"></span>
+                    <span>Matematika (${math}) ≥ 80: ${mathPass ? 'TRUE' : 'FALSE'}</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="w-4 h-4 rounded-full ${englishPass ? 'bg-green-500' : 'bg-red-500'}"></span>
+                    <span>B. Inggris (${english}) ≥ 75: ${englishPass ? 'TRUE' : 'FALSE'}</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="w-4 h-4 rounded-full ${averagePass ? 'bg-green-500' : 'bg-red-500'}"></span>
+                    <span>Rata-rata (${average}) ≥ 78: ${averagePass ? 'TRUE' : 'FALSE'}</span>
+                </div>
+                <div class="border-t pt-2 mt-2">
+                    <span class="font-medium">TRUE AND TRUE AND TRUE = ${finalResult ? 'TRUE' : 'FALSE'}</span>
+                </div>
+            `;
+            
+            if (finalResult) {
+                resultDiv.className = 'mt-8 p-6 rounded-lg bg-green-50 border border-green-200';
+                finalDiv.innerHTML = '<span class="text-green-800">🎉 DITERIMA! Selamat, Anda memenuhi semua kriteria.</span>';
+            } else {
+                resultDiv.className = 'mt-8 p-6 rounded-lg bg-red-50 border border-red-200';
+                finalDiv.innerHTML = '<span class="text-red-800">❌ TIDAK DITERIMA. Beberapa kriteria belum terpenuhi.</span>';
+            }
+            
+            resultDiv.classList.remove('hidden');
+        }
+
+        // PC Assembly Compatibility Checker
+        function checkCompatibility() {
+            const cpuSocket = document.getElementById('cpu-socket').value;
+            const motherboard = document.getElementById('motherboard').value;
+            const ramType = document.getElementById('ram-type').value;
+            const psuWatt = parseInt(document.getElementById('psu-watt').value) || 0;
+            const gpuPower = parseInt(document.getElementById('gpu-power').value) || 0;
+            
+            if (!cpuSocket || !motherboard || !ramType || !psuWatt) {
+                alert('Mohon lengkapi semua pilihan komponen!');
+                return;
+            }
+            
+            const results = [];
+            let compatible = true;
+            
+            // Check CPU-Motherboard compatibility
+            const socketMatch = cpuSocket === motherboard;
+            results.push({
+                check: 'CPU Socket ↔ Motherboard',
+                condition: `${cpuSocket} = ${motherboard}`,
+                result: socketMatch,
+                explanation: socketMatch ? 'Socket kompatibel' : 'Socket tidak kompatibel!'
+            });
+            
+            if (!socketMatch) compatible = false;
+            
+            // Check RAM compatibility with motherboard
+            let ramCompatible = false;
+            if ((motherboard === 'LGA1700' || motherboard === 'AM5') && ramType === 'DDR5') {
+                ramCompatible = true;
+            } else if ((motherboard === 'AM4' || motherboard === 'LGA1200') && ramType === 'DDR4') {
+                ramCompatible = true;
+            }
+            
+            results.push({
+                check: 'RAM ↔ Motherboard',
+                condition: `${ramType} dengan ${motherboard}`,
+                result: ramCompatible,
+                explanation: ramCompatible ? 'RAM kompatibel' : 'Tipe RAM tidak didukung motherboard!'
+            });
+            
+            if (!ramCompatible) compatible = false;
+            
+            // Check PSU power sufficiency
+            const systemBasePower = 150; // CPU + Motherboard + RAM + Storage
+            const totalPowerNeeded = systemBasePower + gpuPower;
+            const powerSufficient = psuWatt >= totalPowerNeeded;
+            
+            results.push({
+                check: 'Daya PSU',
+                condition: `${psuWatt}W ≥ ${totalPowerNeeded}W (${systemBasePower}W sistem + ${gpuPower}W GPU)`,
+                result: powerSufficient,
+                explanation: powerSufficient ? 'Daya PSU mencukupi' : 'PSU tidak mencukupi untuk sistem ini!'
+            });
+            
+            if (!powerSufficient) compatible = false;
+            
+            // Display results
+            const resultDiv = document.getElementById('compatibility-result');
+            const detailsDiv = document.getElementById('compatibility-details');
+            const conclusionDiv = document.getElementById('compatibility-conclusion');
+            
+            detailsDiv.innerHTML = results.map(result => `
+                <div class="flex items-center justify-between p-3 rounded-lg ${result.result ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full flex items-center justify-center ${result.result ? 'bg-green-500' : 'bg-red-500'}">
+                            <span class="text-white text-sm">${result.result ? '✓' : '✗'}</span>
+                        </span>
+                        <div>
+                            <p class="font-medium ${result.result ? 'text-green-800' : 'text-red-800'}">${result.check}</p>
+                            <p class="text-sm ${result.result ? 'text-green-600' : 'text-red-600'}">${result.condition}</p>
+                        </div>
+                    </div>
+                    <span class="text-sm font-medium ${result.result ? 'text-green-700' : 'text-red-700'}">${result.explanation}</span>
+                </div>
+            `).join('');
+            
+            if (compatible) {
+                conclusionDiv.className = 'mt-4 p-4 rounded-lg font-medium bg-green-100 border border-green-300 text-green-800';
+                conclusionDiv.innerHTML = '🎉 <strong>KOMPATIBEL!</strong> Semua komponen dapat bekerja bersama dengan baik. Sistem siap dirakit!';
+            } else {
+                conclusionDiv.className = 'mt-4 p-4 rounded-lg font-medium bg-red-100 border border-red-300 text-red-800';
+                conclusionDiv.innerHTML = '⚠️ <strong>TIDAK KOMPATIBEL!</strong> Beberapa komponen tidak cocok. Silakan pilih komponen yang sesuai.';
+            }
+            
+            resultDiv.classList.remove('hidden');
+            
+            // Scroll to results
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Truth Table
+        function showTruthTable(operator) {
+            const container = document.getElementById('truth-table-container');
+            let tableHTML = '<h4 class="text-xl font-semibold text-gray-700 mb-4">Tabel Kebenaran:</h4>';
+            
+            if (operator === 'AND') {
+                tableHTML += `
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-blue-50">
+                                <tr>
+                                    <th class="border border-gray-300 px-4 py-2">P</th>
+                                    <th class="border border-gray-300 px-4 py-2">Q</th>
+                                    <th class="border border-gray-300 px-4 py-2">P ∧ Q</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center bg-green-100">T</td></tr>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center bg-red-100">F</td></tr>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center bg-red-100">F</td></tr>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center bg-red-100">F</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">AND hanya TRUE jika kedua input TRUE</p>
+                `;
+            } else if (operator === 'OR') {
+                tableHTML += `
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-green-50">
+                                <tr>
+                                    <th class="border border-gray-300 px-4 py-2">P</th>
+                                    <th class="border border-gray-300 px-4 py-2">Q</th>
+                                    <th class="border border-gray-300 px-4 py-2">P ∨ Q</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center bg-green-100">T</td></tr>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center bg-green-100">T</td></tr>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center bg-green-100">T</td></tr>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center bg-red-100">F</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">OR TRUE jika salah satu atau kedua input TRUE</p>
+                `;
+            } else if (operator === 'NOT') {
+                tableHTML += `
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead class="bg-purple-50">
+                                <tr>
+                                    <th class="border border-gray-300 px-4 py-2">P</th>
+                                    <th class="border border-gray-300 px-4 py-2">¬P</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">T</td><td class="border border-gray-300 px-4 py-2 text-center bg-red-100">F</td></tr>
+                                <tr><td class="border border-gray-300 px-4 py-2 text-center">F</td><td class="border border-gray-300 px-4 py-2 text-center bg-green-100">T</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">NOT membalik nilai kebenaran</p>
+                `;
+            }
+            
+            container.innerHTML = tableHTML;
+        }
+
+        // Quiz System
+        const questionBank = [
+            {
+                question: "Apa yang dimaksud dengan dekomposisi dalam berpikir komputasional?",
+                options: ["Menggabungkan masalah kecil menjadi besar", "Memecah masalah kompleks menjadi bagian-bagian kecil", "Menghapus bagian yang tidak penting", "Membuat algoritma baru"],
+                correct: 1
+            },
+            {
+                question: "Manakah yang merupakan contoh pengenalan pola?",
+                options: ["Membuat flowchart", "Mengenali tren penjualan berulang setiap bulan", "Menulis kode program", "Menghapus data yang tidak perlu"],
+                correct: 1
+            },
+            {
+                question: "Hasil dari operasi logika TRUE AND FALSE adalah:",
+                options: ["TRUE", "FALSE", "NULL", "UNDEFINED"],
+                correct: 1
+            },
+            {
+                question: "Hasil dari operasi logika TRUE OR FALSE adalah:",
+                options: ["TRUE", "FALSE", "NULL", "UNDEFINED"],
+                correct: 0
+            },
+            {
+                question: "Apa fungsi utama abstraksi dalam berpikir komputasional?",
+                options: ["Membuat program lebih kompleks", "Menyederhanakan masalah dengan fokus pada hal penting", "Menambah detail pada solusi", "Menghapus semua informasi"],
+                correct: 1
+            },
+            {
+                question: "Algoritma adalah:",
+                options: ["Bahasa pemrograman", "Langkah-langkah sistematis untuk menyelesaikan masalah", "Jenis komputer", "Software aplikasi"],
+                correct: 1
+            },
+            {
+                question: "Hasil dari NOT TRUE adalah:",
+                options: ["TRUE", "FALSE", "NULL", "ERROR"],
+                correct: 1
+            },
+            {
+                question: "Dalam logika matematika, simbol ∧ melambangkan:",
+                options: ["OR", "AND", "NOT", "IF-THEN"],
+                correct: 1
+            },
+            {
+                question: "Manakah contoh yang tepat untuk algoritma?",
+                options: ["Resep masakan", "Nama makanan", "Bahan masakan", "Alat masak"],
+                correct: 0
+            },
+            {
+                question: "Tabel kebenaran digunakan untuk:",
+                options: ["Membuat program", "Menampilkan hasil operasi logika", "Menyimpan data", "Menghitung matematika"],
+                correct: 1
+            },
+            {
+                question: "Hasil dari FALSE AND FALSE adalah:",
+                options: ["TRUE", "FALSE", "NULL", "UNDEFINED"],
+                correct: 1
+            },
+            {
+                question: "Manakah yang bukan pilar berpikir komputasional?",
+                options: ["Dekomposisi", "Abstraksi", "Kompilasi", "Algoritma"],
+                correct: 2
+            },
+            {
+                question: "Pengenalan pola membantu dalam:",
+                options: ["Membuat masalah lebih kompleks", "Menemukan solusi yang efisien", "Menghapus data", "Menulis kode"],
+                correct: 1
+            },
+            {
+                question: "Simbol ∨ dalam logika matematika berarti:",
+                options: ["AND", "OR", "NOT", "EQUAL"],
+                correct: 1
+            },
+            {
+                question: "Abstraksi membantu dengan cara:",
+                options: ["Menambah kompleksitas", "Mengabaikan detail yang tidak relevan", "Membuat lebih banyak masalah", "Menghapus semua informasi"],
+                correct: 1
+            },
+            {
+                question: "Hasil dari TRUE OR TRUE adalah:",
+                options: ["TRUE", "FALSE", "NULL", "ERROR"],
+                correct: 0
+            },
+            {
+                question: "Dekomposisi berguna untuk:",
+                options: ["Membuat masalah lebih sulit", "Mengelola masalah kompleks dengan lebih mudah", "Menghapus masalah", "Membuat algoritma"],
+                correct: 1
+            },
+            {
+                question: "Dalam pernyataan IF-THEN, jika kondisi FALSE maka:",
+                options: ["Eksekusi bagian THEN", "Skip bagian THEN", "Error", "Restart program"],
+                correct: 1
+            },
+            {
+                question: "Manakah contoh abstraksi yang tepat?",
+                options: ["Peta jalan yang menampilkan semua detail bangunan", "Peta jalan yang hanya menampilkan jalan utama", "Foto satelit lengkap", "Daftar alamat lengkap"],
+                correct: 1
+            },
+            {
+                question: "Algoritma harus memiliki sifat:",
+                options: ["Ambigu", "Jelas dan sistematis", "Rumit", "Tidak berurutan"],
+                correct: 1
+            },
+            {
+                question: "Hasil dari NOT FALSE adalah:",
+                options: ["TRUE", "FALSE", "NULL", "UNDEFINED"],
+                correct: 0
+            },
+            {
+                question: "Berpikir komputasional berguna untuk:",
+                options: ["Hanya programmer", "Semua orang dalam memecahkan masalah", "Hanya matematikawan", "Hanya guru"],
+                correct: 1
+            },
+            {
+                question: "Manakah yang merupakan contoh dekomposisi?",
+                options: ["Membuat aplikasi chat menjadi: login, daftar teman, kirim pesan", "Menghapus fitur aplikasi", "Menggabungkan semua fitur jadi satu", "Membuat aplikasi baru"],
+                correct: 0
+            },
+            {
+                question: "Operasi logika AND akan menghasilkan TRUE jika:",
+                options: ["Salah satu input TRUE", "Kedua input TRUE", "Kedua input FALSE", "Salah satu input FALSE"],
+                correct: 1
+            },
+            {
+                question: "Pengenalan pola membantu dalam:",
+                options: ["Membuat masalah baru", "Mengidentifikasi kesamaan untuk solusi efisien", "Menghapus pola lama", "Membuat pola acak"],
+                correct: 1
+            },
+            {
+                question: "Flowchart adalah contoh dari:",
+                options: ["Dekomposisi", "Algoritma", "Abstraksi", "Pengenalan pola"],
+                correct: 1
+            },
+            {
+                question: "Hasil dari FALSE OR TRUE adalah:",
+                options: ["TRUE", "FALSE", "NULL", "ERROR"],
+                correct: 0
+            },
+            {
+                question: "Abstraksi dalam pemrograman seperti:",
+                options: ["Menulis semua detail kode", "Menggunakan fungsi untuk menyembunyikan kompleksitas", "Menghapus semua kode", "Membuat kode lebih rumit"],
+                correct: 1
+            },
+            {
+                question: "Manakah urutan yang benar dalam berpikir komputasional?",
+                options: ["Algoritma → Dekomposisi → Abstraksi → Pola", "Dekomposisi → Pola → Abstraksi → Algoritma", "Abstraksi → Algoritma → Dekomposisi → Pola", "Pola → Abstraksi → Dekomposisi → Algoritma"],
+                correct: 1
+            },
+            {
+                question: "Tabel kebenaran untuk OR menunjukkan hasil FALSE hanya jika:",
+                options: ["Kedua input TRUE", "Salah satu input TRUE", "Kedua input FALSE", "Salah satu input FALSE"],
+                correct: 2
+            },
+            {
+                question: "Pseudocode adalah contoh dari:",
+                options: ["Bahasa pemrograman", "Abstraksi algoritma", "Kompilasi program", "Debugging"],
+                correct: 1
+            },
+            {
+                question: "Manakah yang bukan karakteristik algoritma yang baik?",
+                options: ["Jelas", "Sistematis", "Ambigu", "Efisien"],
+                correct: 2
+            },
+            {
+                question: "Dalam nested IF, kondisi kedua dievaluasi jika:",
+                options: ["Kondisi pertama FALSE", "Kondisi pertama TRUE", "Selalu dievaluasi", "Tidak pernah dievaluasi"],
+                correct: 1
+            },
+            {
+                question: "Pengenalan pola dalam data mining digunakan untuk:",
+                options: ["Menghapus data", "Menemukan tren dan prediksi", "Membuat data baru", "Mengacak data"],
+                correct: 1
+            },
+            {
+                question: "Hasil dari TRUE AND TRUE adalah:",
+                options: ["TRUE", "FALSE", "NULL", "UNDEFINED"],
+                correct: 0
+            },
+            {
+                question: "Abstraksi membantu programmer dengan:",
+                options: ["Membuat kode lebih panjang", "Menyembunyikan detail implementasi", "Menambah bug", "Membuat kode lebih lambat"],
+                correct: 1
+            },
+            {
+                question: "Dekomposisi dalam pengembangan software disebut juga:",
+                options: ["Integration", "Modularization", "Compilation", "Documentation"],
+                correct: 1
+            },
+            {
+                question: "Logika matematika dalam pemrograman digunakan untuk:",
+                options: ["Menghitung angka", "Membuat keputusan kondisional", "Menyimpan data", "Menampilkan output"],
+                correct: 1
+            },
+            {
+                question: "Manakah contoh penerapan 4 pilar berpikir komputasional dalam kehidupan sehari-hari?",
+                options: ["Memasak tanpa resep", "Merencanakan liburan dengan itinerary", "Menonton TV", "Tidur siang"],
+                correct: 1
+            },
+            {
+                question: "Operator NOT dalam pemrograman sering ditulis sebagai:",
+                options: ["&", "|", "!", "="],
+                correct: 2
+            }
+        ];
+
+        let currentQuiz = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let quizTimer;
+        let timeLeft = 900; // 15 minutes in seconds
+
+        function startQuiz() {
+            // Select 10 random questions
+            currentQuiz = [];
+            const usedIndices = new Set();
+            
+            while (currentQuiz.length < 10) {
+                const randomIndex = Math.floor(Math.random() * questionBank.length);
+                if (!usedIndices.has(randomIndex)) {
+                    usedIndices.add(randomIndex);
+                    currentQuiz.push({...questionBank[randomIndex], id: randomIndex});
+                }
+            }
+            
+            currentQuestionIndex = 0;
+            userAnswers = new Array(10).fill(-1);
+            timeLeft = 900;
+            
+            document.getElementById('quiz-start').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            
+            startTimer();
+            displayQuestion();
+        }
+
+        function startTimer() {
+            quizTimer = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById('timer').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(quizTimer);
+                    finishQuiz();
+                }
+            }, 1000);
+        }
+
+        function displayQuestion() {
+            const question = currentQuiz[currentQuestionIndex];
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = `p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
+                    userAnswers[currentQuestionIndex] === index ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
+                }`;
+                optionDiv.innerHTML = `
+                    <label class="flex items-center cursor-pointer">
+                        <input type="radio" name="answer" value="${index}" class="mr-3" ${
+                            userAnswers[currentQuestionIndex] === index ? 'checked' : ''
+                        }>
+                        <span>${option}</span>
+                    </label>
+                `;
+                optionDiv.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Update progress bar
+            const progress = ((currentQuestionIndex + 1) / 10) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            document.getElementById('next-btn').textContent = 
+                currentQuestionIndex === 9 ? 'Selesai' : 'Selanjutnya';
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestionIndex] = answerIndex;
+            
+            // Update visual selection
+            document.querySelectorAll('#options-container > div').forEach((div, index) => {
+                if (index === answerIndex) {
+                    div.className = 'p-4 border-2 border-blue-500 bg-blue-50 rounded-lg cursor-pointer transition-all duration-200';
+                } else {
+                    div.className = 'p-4 border-2 border-gray-200 rounded-lg cursor-pointer transition-all duration-200 hover:bg-blue-50';
+                }
+            });
+            
+            // Check radio button
+            document.querySelector(`input[value="${answerIndex}"]`).checked = true;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < 9) {
+                currentQuestionIndex++;
+                displayQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
+        }
+
+        function finishQuiz() {
+            clearInterval(quizTimer);
+            
+            // Calculate score
+            let correctAnswers = 0;
+            currentQuiz.forEach((question, index) => {
+                if (userAnswers[index] === question.correct) {
+                    correctAnswers++;
+                }
+            });
+            
+            const score = (correctAnswers / 10) * 100;
+            const passed = score >= 70;
+            
+            // Hide quiz container
+            document.getElementById('quiz-container').classList.add('hidden');
+            
+            // Show results
+            const resultDiv = document.getElementById('quiz-result');
+            const iconDiv = document.getElementById('result-icon');
+            const titleDiv = document.getElementById('result-title');
+            const scoreDiv = document.getElementById('result-score');
+            const detailsDiv = document.getElementById('result-details');
+            
+            if (passed) {
+                iconDiv.className = 'w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4';
+                iconDiv.innerHTML = '<span class="text-3xl text-white">🎉</span>';
+                titleDiv.textContent = 'Selamat! Anda Lulus!';
+                titleDiv.className = 'text-2xl font-bold mb-2 text-green-600';
+            } else {
+                iconDiv.className = 'w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4';
+                iconDiv.innerHTML = '<span class="text-3xl text-white">📚</span>';
+                titleDiv.textContent = 'Perlu Belajar Lagi';
+                titleDiv.className = 'text-2xl font-bold mb-2 text-red-600';
+            }
+            
+            scoreDiv.textContent = `Skor Anda: ${score.toFixed(0)}% (${correctAnswers}/10 benar)`;
+            
+            detailsDiv.innerHTML = `
+                <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div><strong>Jawaban Benar:</strong> ${correctAnswers}</div>
+                    <div><strong>Jawaban Salah:</strong> ${10 - correctAnswers}</div>
+                    <div><strong>Waktu Tersisa:</strong> ${Math.floor(timeLeft / 60)}:${(timeLeft % 60).toString().padStart(2, '0')}</div>
+                    <div><strong>Status:</strong> ${passed ? 'LULUS' : 'TIDAK LULUS'}</div>
+                </div>
+            `;
+            
+            resultDiv.classList.remove('hidden');
+        }
+
+        function restartQuiz() {
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-start').classList.remove('hidden');
+        }
+
+        // Initialize page
+        showPage('materi');
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f5cb8a1142aa09',t:'MTc1NTIzMDUzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
